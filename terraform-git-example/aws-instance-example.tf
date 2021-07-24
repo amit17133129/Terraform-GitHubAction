@@ -1,4 +1,4 @@
 resource "aws_instance" "web1" {
-   ami           = "${lookup(var.ami_id, var.region)}"
-   instance_type = "t2.micro"
+   ami           = "ami-035b3c7efe6d061d5"
+   instance_type = "t2.micro"       
  }
