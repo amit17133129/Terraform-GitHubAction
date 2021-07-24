@@ -31,7 +31,7 @@ resource "aws_vpc" "vpc" {
 
   tags ={
     Environment = "${var.environment_tag}"
-    Name= "TerraformVpc"
+    Name= "GAVPC"
   }
 }
 
@@ -42,7 +42,7 @@ resource "aws_subnet" "subnet_public1_Lab1" {
   availability_zone = "ap-south-1a"
   tags ={
     Environment = "${var.environment_tag}"
-    Name= "TerraformPublicSubnetLab1"
+    Name= "GASubnet"
   }
 
 }
@@ -73,7 +73,7 @@ resource "aws_internet_gateway" "gw" {
   vpc_id = "${aws_vpc.vpc.id}"
 
   tags = {
-    Name = "Terraform_IG"
+    Name = "GA_IG"
   }
 }
 resource "aws_route_table" "r" {
@@ -84,7 +84,7 @@ resource "aws_route_table" "r" {
     gateway_id = aws_internet_gateway.gw.id
   }
   tags = {
-    Name = "TerraformRouteTable"
+    Name = "GART"
   }
 }
 resource "aws_route_table_association" "public" {
