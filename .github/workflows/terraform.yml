@@ -12,12 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/setup-node@v1.4.4
-        with:
-           version: "0.12.15"
+        uses: actions/checkout@v2
+
       - name: Set up Terraform
-        uses: marocchino/setup-terraform@v1
-        with:
-          version: "0.12.15"
-      - name: Build module 'aws-instance-first-script'
-        run: cd terraform-git-example && terraform init && terraform validate && terraform plan 
+        uses: hashicorp/setup-terraform@v1
+
+      - name: Terraform Init
+        id: init
+        run: terraform init
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate -no-color
