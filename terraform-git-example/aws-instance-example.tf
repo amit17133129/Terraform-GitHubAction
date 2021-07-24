@@ -48,7 +48,7 @@ resource "aws_subnet" "subnet_public1_Lab1" {
 }
 
 resource "aws_security_group" "TerraformSG" {
-  name = "TerraformSG"
+  name = "githubaactionsSG"
   vpc_id = "${aws_vpc.vpc.id}"
   ingress {
       from_port   = 0
@@ -65,7 +65,7 @@ resource "aws_security_group" "TerraformSG" {
   }
   tags ={
     Environment = "${var.environment_tag}"
-    Name= "TerraformSG"
+    Name= "githubaactionsSG"
   }
 
 }
@@ -98,7 +98,7 @@ resource "aws_instance" "Ansible_Controller_Node" {
   instance_type = "t2.micro"
   subnet_id = "${aws_subnet.subnet_public1_Lab1.id}"
   vpc_security_group_ids = ["${aws_security_group.TerraformSG.id}"]
-  key_name = "007ab"
+  key_name = "key000000"
  tags ={
     Environment = "${var.environment_tag}"
     Name= "Ansible_Controller_Node"
