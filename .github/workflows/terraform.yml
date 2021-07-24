@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/setup-node@v1.4.4
         with:
            version: "0.12.15"
       - name: Set up Terraform
