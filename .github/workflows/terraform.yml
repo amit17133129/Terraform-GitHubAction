@@ -19,4 +19,5 @@ jobs:
     
       - name: Terraform Apply
         id: apply
-        run: cd terraform-git-example && terraform init && terraform validate && terraform plan  && terraform destroy -auto-approve
+        run: cd terraform-git-example && terraform destroy -auto-approve
+        #        run: cd terraform-git-example && terraform init && terraform validate && terraform plan  && terraform destroy -auto-approve
